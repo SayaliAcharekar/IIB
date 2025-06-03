@@ -1,0 +1,131 @@
+--EXTRACT function
+
+The EXTRACT function extracts fields (or calculates values) from datetime values and intervals.
+
+EXample
+DECLARE myDate TIMESTAMP '2023-10-15 14:30:00';
+        DECLARE extractedYear INTEGER;
+
+       SET extractedYear = EXTRACT(YEAR FROM myDate);
+       SET OutputRoot.XMLNSC.root.extractedYear=extractedYear;
+	   
+--CURRENT_TIME function
+The CURRENT_TIME datetime function returns the current local time.
+
+        DECLARE currentTime TIME;
+        SET currentTime =CURRENT_TIME;
+        SET OutputRoot.JSON.Data.currentTime=currentTime;
+		
+--Current DATE
+
+DECLARE today DATE;
+        SET today = CURRENT_DATE;
+        DECLARE todayString CHARACTER 'Current Date: ' || CAST(today AS CHARACTER);
+        SET OutputRoot.JSON.Data.today = todayString;		
+		
+--CURRENT_TIMESTAMP function
+The CURRENT_TIMESTAMP datetime function returns the current date and local time in ISO8601 format.
+
+Syntax
+CURRENT_TIMESTAMP
+
+   DECLARE currentTime TIMESTAMP;
+   SET currentTime = CURRENT_TIMESTAMP;
+   SET OutputRoot.JSON.Data.currentTime=currentTime;
+ 
+ 
+--CURRENT_GMTDATE function
+
+The CURRENT_GMTDATE datetime function returns the current date in the GMT time zone.
+
+         DECLARE gmtDate DATE;
+         SET gmtDate = CURRENT_GMTDATE;
+         SET OutputRoot.JSON.Data.gmtDate=gmtDate;
+		 
+--LOCAL_TIMEZONE function
+Syntax
+LOCAL_TIMEZONE	
+
+
+        DECLARE localTZ CHARACTER;
+        SET localTZ = LOCAL_TIMEZONE;
+        SET OutputRoot.JSON.Data.localTZ=localTZ;	 
+	
+	
+	
+	
+Numberic Function
+
+-- ABS and ABSVAL functions
+
+The ABS and ABSVAL numeric functions return the absolute value of a supplied number.
+-+-ABS----+--(--source_number--)
+   '-ABSVAL-' 
+   
+        DECLARE abs1 INTEGER;
+        SET abs1=abs(-12.34);
+        SET OutputRoot.JSON.Data.abs1=abs1;
+
+   
+   
+--ACOS function
+
+The ACOS numeric function returns the angle of a given cosine.
+
+
+        DECLARE cos1 INTEGER;
+        SET cos1=cos(897);
+        SET OutputRoot.JSON.Data.cos1=cos1;
+		
+		
+--ASIN		
+The ASIN numeric function returns the angle of the given sine.
+
+Syntax
+Read syntax diagramSkip visual syntax diagram
+>>---ASIN----(--NumericExpression--)
+
+    DECLARE sin1 INTEGER;
+    SET sin1=SIN (897);
+    SET OutputRoot.JSON.Data.sin1=sin1;
+	
+--ATAN function
+The ATAN numeric function returns the angle of the given tangent.
+
+
+
+
+--ATAN2 function
+The ATAN2 numeric function returns the angle subtended in a right angled triangle between an opposite and the base.
+
+Syntax
+>>-ATAN2--(--OppositeNumericExpression--,--BaseNumericExpression--)
+
+
+BITAND function
+
+The BITAND numeric function performs a bitwise AND on the binary representation of two or more numbers.
+
+Syntax
+                                 .-,--------------.      
+                                 V                |      
+>>-BITAND--(--source_integer--,----source_integer-+--)---------><
+
+BITAND takes two or more integer values and returns the result of performing the bitwise AND on the binary representation of the numbers. The result is INTEGER unless either parameter is NULL, in which case the result is NULL.
+        
+
+--BITNOT function
+
+The BITNOT numeric function performs a bitwise complement on the binary representation of a number.
+
+Syntax
+
+>>-BITNOT--(--source_integer--)
+
+TRUNCATE function
+
+The TRUNCATE numeric function truncates a supplied decimal number a specified number of places.
+
+Syntax
+
+>>-TRUNCATE--(--source_number--,--precision--)-----------------><
